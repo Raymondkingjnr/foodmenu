@@ -1,0 +1,29 @@
+nav {
+  background: #000;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+  position: sticky;
+}
+
+.nav__links {
+  display: flex;
+  text-decoration: none;
+  color: #fff;
+}
+.links {
+  color: #fff;
+}
+.nav__links li {
+  text-decoration: none;
+  list-style: none;
+  padding-left: 2.5rem;
+  text-transform: capitalize;
+  font-family: var(--font-text);
+  color: #fff;
+}
+.logo-icon {
+  font-size: 35px;
+}
