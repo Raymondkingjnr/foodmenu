@@ -1,11 +1,12 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Nav, Footer } from "./componenets/index";
+import { Nav, Footer, Sidebar } from "./componenets/index";
 import { Home, About, Book, Menu, Error } from "./pages";
 import "./App.css";
 function App() {
   return (
     <Router>
       <Nav />
+      <Sidebar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />

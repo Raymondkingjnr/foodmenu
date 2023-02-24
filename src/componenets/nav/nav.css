@@ -1,20 +1,22 @@
 nav {
-  background: #000;
-  color: #fff;
+  background: #fff;
+  color: #000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px;
+  /* padding: 20px; */
   position: sticky;
 }
 
 .nav__links {
   display: flex;
   text-decoration: none;
-  color: #fff;
+  color: #000;
+  margin-right: 4rem;
 }
 .links {
-  color: #fff;
+  color: #000;
+  font-size: 15px;
 }
 .nav__links li {
   text-decoration: none;
@@ -22,8 +24,29 @@ nav {
   padding-left: 2.5rem;
   text-transform: capitalize;
   font-family: var(--font-text);
-  color: #fff;
+  color: #000;
 }
-.logo-icon {
+.logo-icon img {
+  width: 120px;
+}
+.toggle {
+  display: none;
   font-size: 35px;
+}
+
+@media screen and (min-width: 1200px) {
+  .logo-icon {
+    font-size: 40px;
+  }
+  .links {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .toggle {
+    display: block;
+  }
+  .nav__links {
+    display: none;
+  }
 }
