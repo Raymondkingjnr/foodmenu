@@ -10,6 +10,7 @@
   transform: translate(-100%);
   transition: all 0.3s linear;
   padding: 35px;
+  z-index: 15;
 }
 .show-sidebar {
   transform: translate(0);

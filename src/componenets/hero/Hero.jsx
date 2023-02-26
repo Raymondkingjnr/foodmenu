@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./hero.css";
 function Hero() {
   return (
-    <div className="hero--bg section">
+    <div className="hero--bg">
       <div className="overlay"></div>
       <div className="hero-text">
         <h3>

@@ -1,48 +1,13 @@
 import React, { useState, useContext, useEffect } from "react";
-
+import axios from "axios";
 const AppContext = React.createContext();
 
 const url = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
 
 const AppProvider = ({ children }) => {
   const [isSidebarOpen, setisSidebarOpen] = useState(false);
-
-  const [loading, setLoading] = useState(true);
-  const [data, setDate] = useState([]);
-
-  const fetchData = async () => {
-    setLoading(false);
-    try {
-      const response = await fetch(url).then((response) => response.json());
-
-      console.log(response);
-
-      if (response) {
-        const newDate = response.map((res) => {
-          const { idMeal, strMeal, strCategory, strMealThumb, strTags } = res;
-
-          return {
-            id: idMeal,
-            meal: strMeal,
-            category: strCategory,
-            img: strMealThumb,
-            tag: strTags,
-          };
-        });
-        setDate(newDate);
-      } else {
-        setDate([]);
-      }
-      setLoading(false);
-    } catch (error) {
-      console.log(error);
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const [loading, setLoading] = useState(false);
+  const [foods, setFoods] = useState([]);
 
   const openSidebar = () => {
     setisSidebarOpen(true);
@@ -52,14 +17,46 @@ const AppProvider = ({ children }) => {
     setisSidebarOpen(false);
   };
 
+  const fetchData = async () => {
+    setLoading(true);
+    try {
+      const response = await axios(url);
+      const data = response.data.meals;
+
+      console.log(data);
+
+      if (data) {
+        const newdata = data.map((item) => {
+          const { idMeal, strCategory, strMealThumb, strMeal, strTags } = item;
+
+          return {
+            id: idMeal,
+            category: strCategory,
+            img: strMealThumb,
+            meal: strMeal,
+            tag: strTags,
+          };
+        });
+        setFoods(newdata);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <AppContext.Provider
       value={{
         openSidebar,
         closeSidebar,
         isSidebarOpen,
-        data,
         loading,
+        foods,
       }}
     >
       {children}

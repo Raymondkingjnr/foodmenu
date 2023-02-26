@@ -8,7 +8,7 @@ import "./nav.css";
 function Nav() {
   const { openSidebar } = useGlobalContext();
   return (
-    <div className="section">
+    <div className="">
       <nav>
         <div className="logo">
           <Link to="/" className="logo-icon">
