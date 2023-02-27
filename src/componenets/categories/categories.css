@@ -1,0 +1,14 @@
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+.category-btn {
+  padding: 15px;
+  border-radius: 20px;
+  width: 100px;
+  color: #fff;
+  text-align: center;
+}

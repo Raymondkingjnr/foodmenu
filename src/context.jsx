@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import axios from "axios";
 const AppContext = React.createContext();
 
@@ -8,6 +8,7 @@ const AppProvider = ({ children }) => {
   const [isSidebarOpen, setisSidebarOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [foods, setFoods] = useState([]);
+  // const scrollRef = useRef(null);
 
   const openSidebar = () => {
     setisSidebarOpen(true);
@@ -22,8 +23,6 @@ const AppProvider = ({ children }) => {
     try {
       const response = await axios(url);
       const data = response.data.meals;
-
-      console.log(data);
 
       if (data) {
         const newdata = data.map((item) => {
@@ -49,6 +48,17 @@ const AppProvider = ({ children }) => {
     fetchData();
   }, []);
 
+  const allCategories = ["all", ...new Set(foods.map((item) => item.category))];
+
+  const filterItems = (category) => {
+    if (category === "all") {
+      setFoods(foods);
+      return;
+    }
+    const newItems = foods.filter((item) => item.category === category);
+    setFoods(newItems);
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -57,6 +67,8 @@ const AppProvider = ({ children }) => {
         isSidebarOpen,
         loading,
         foods,
+        allCategories,
+        filterItems,
       }}
     >
       {children}

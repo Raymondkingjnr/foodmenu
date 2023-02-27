@@ -23,12 +23,25 @@ export const links = [
   },
 ];
 
-export const menuItems = [
-  {
-    id: 0,
-    img: "",
-    category: "",
-    price: "",
-    name: "",
-  },
-];
+// const gallaryImage = [
+//   {
+//     img: gallary1,
+//   },
+//   {
+//     img: gallary2,
+//   },
+//   {
+//     img: gallary3,
+//   },
+//   {
+//     img: gallary4,
+//   },
+//   {
+//     img: gallary5,
+//   },
+//   {
+//     img: gallary6,
+//   },
+// ];
+
+// export { gallaryImage };
