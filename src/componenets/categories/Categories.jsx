@@ -4,6 +4,7 @@ import "./categories.css";
 
 function Categories() {
   const { allCategories, filterItems } = useGlobalContext();
+
   return (
     <div className="btn-container">
       {allCategories.map((category, index) => {

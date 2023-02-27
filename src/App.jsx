@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Nav, Footer, Sidebar } from "./componenets/index";
-import { Home, About, Book, Menu, Error } from "./pages";
+import { Home, About, Menu, Error } from "./pages";
 import "./App.css";
 function App() {
   return (
@@ -10,7 +10,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/book" element={<Book />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="*" element={<Error />} />
       </Routes>

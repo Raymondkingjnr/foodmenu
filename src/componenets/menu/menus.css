@@ -19,3 +19,20 @@
 .menu-card h2 {
   padding-top: 2px;
 }
+
+@media screen and (max-width: 900px) {
+  .menu-container {
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .menu-container {
+    display: grid;
+    grid-template-columns: repeat(1, 2fr);
+  }
+  .menu-card img {
+    width: 75%;
+  }
+}

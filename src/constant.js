@@ -16,11 +16,11 @@ export const links = [
     text: "menu",
     url: "/menu",
   },
-  {
-    id: 3,
-    text: "book us",
-    url: "/book",
-  },
+  // {
+  //   id: 3,
+  //   text: "book us",
+  //   url: "/book",
+  // },
 ];
 
 // const gallaryImage = [
